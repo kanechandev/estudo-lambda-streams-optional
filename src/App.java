@@ -40,5 +40,14 @@ public class App {
             .filter(e -> e % 2 == 0)
             .forEach(System.out::print);
 
+        /*
+         * method map: caso seja necessário realizar alguma validação/manipulação
+         * antes de passar para o método stream.
+         */
+        System.out.println("\n-------- Método map --------\n");
+        lista.stream()
+            .map(e -> e * 50)
+            .forEach(e -> System.out.print(e+" "));        
+
     }
 }

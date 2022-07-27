@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -22,6 +21,16 @@ public class App {
         for (Integer numero : lista) {
             System.out.println(numero);
         }
+
+        System.out.println("\n--------Streams, Java 8 --------\n");
+        /*
+         * method reference: System.out::print
+         */
+        lista.stream()
+            .skip(3) //pula os três primeiros números
+            .limit(7) //litado busca a 7 números
+            .distinct() //ignora repetição de números
+            .forEach(System.out::print);
 
     }
 }

@@ -31,6 +31,14 @@ public class App {
             .limit(7) //litado busca a 7 números
             .distinct() //ignora repetição de números
             .forEach(System.out::print);
+        /*
+         * method filter: customização de filtros mais avançados,
+         * ou que atenda uma necessidade específica.
+         */
+        System.out.println("\n-------- Método filter --------\n");
+        lista.stream()
+            .filter(e -> e % 2 == 0)
+            .forEach(System.out::print);
 
     }
 }

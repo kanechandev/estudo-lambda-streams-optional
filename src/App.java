@@ -2,7 +2,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -66,6 +69,21 @@ public class App {
         Long qtd = lista.stream()
             .count();
         System.out.println("Quantidade: "+qtd);
+
+        System.out.println("\n-------- Collectors(Agrupamento) --------\n");
+        Map<Boolean, List<Integer>> mapa = lista.stream()
+        .map(e -> e* 2)
+        .collect(Collectors.groupingBy(e -> e > 10));
+        System.out.println("Agrupamento > 10: "+mapa);
+        
+        System.out.println("\n-------- Collectors(Joining) --------\n");
+        /*
+         * Gerar uma única string com todos os valores.
+         */
+        String texto = lista.stream()
+        .map(String::valueOf)
+        .collect(Collectors.joining(";"));
+        System.out.println(texto);
 
     }
 }

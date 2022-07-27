@@ -1,6 +1,8 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -47,7 +49,23 @@ public class App {
         System.out.println("\n-------- Método map --------\n");
         lista.stream()
             .map(e -> e * 50)
-            .forEach(e -> System.out.print(e+" "));        
+            .forEach(e -> System.out.print(e+" "));   
+            
+        /*
+         * methods: max, min e count.
+         */
+        System.out.println("\n-------- Maior, Menor e Count --------\n");
+        Optional<Integer> maior = lista.stream()
+            .max(Comparator.naturalOrder());
+        System.out.println("Maior é: "+maior.get());
+
+        Optional<Integer> menor = lista.stream()
+            .min(Comparator.naturalOrder());
+        System.out.println("Menor é: "+menor.get());
+
+        Long qtd = lista.stream()
+            .count();
+        System.out.println("Quantidade: "+qtd);
 
     }
 }
